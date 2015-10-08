@@ -4,7 +4,11 @@ end
 
 # homepage / login page
 get '/index' do
-  erb :index
+  if session[:user_id]
+    redirect "/users/#{session[:user_id]}"
+  else
+    erb :index
+  end
 end
 
 # new user signup page
@@ -14,7 +18,6 @@ end
 
 # logging in from /index
 post '/index' do
-  p params
   user = User.find_by(email: params[:email])    # we need a unique identifier for the user!
   if user && user.password == params[:password]
     session[:user_id] = user.id

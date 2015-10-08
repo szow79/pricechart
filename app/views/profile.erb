@@ -1,4 +1,25 @@
-<a href="/index"><button>home</button></a>
-<form method='post' action="/users/<%= session[:user_id] %>">
-  <input type='submit' value='log out'>
-</form>
+<body>
+
+<h3>Welcome home <%= session[:user_id] %></h3>
+  
+  <nav>
+    <form method='post' action="/users/<%= session[:user_id] %>">
+      <input type='submit' value='log out'>
+    </form>
+  </nav>
+
+  <article>
+    <form>
+      <input type='text' name='name'>
+      <input type='text' name='description'>
+      <input type='text' name='url'>
+      <input type='submit' value='Add item!'>
+    </form>
+    <button class='hide'>Remove item!</button>
+  </article>
+
+</body>
+
+<footer>
+	
+</footer>
