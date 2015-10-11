@@ -1,25 +1,37 @@
 <body>
 
-<h3>Welcome home <%= session[:user_id] %></h3>
-  
+<h3>Welcome Home <%= session[:user_id] %></h3>
+
   <nav>
     <form method='post' action="/users/<%= session[:user_id] %>">
       <input type='submit' value='log out'>
     </form>
   </nav>
+  <hr>
 
   <article>
-    <form>
+    <form method='post' action='/users/<%= session[:user_id] %>'>
       <input type='text' name='name'>
       <input type='text' name='description'>
       <input type='text' name='url'>
       <input type='submit' value='Add item!'>
     </form>
+  </article>
+
+  <article>
+    <% @items.each do |item| %>
+      Item: <%= item.name %></br>
+      Url: <a href="http://<%= item.url %>"><%= item.url %></a></br>
+      Description: <%= item.description %></br>
+      <!-- interchange onclick? -->
+      Pic: MAYBE</br>
+      Graph: NOT THERE YET</br>
+    <% end %>
     <button class='hide'>Remove item!</button>
   </article>
 
 </body>
 
 <footer>
-	
+
 </footer>

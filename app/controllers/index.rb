@@ -1,8 +1,9 @@
+# => *****HOMEPAGE / LOGIN*****
+
 get '/' do
   redirect 'index'
 end
 
-# homepage / login page
 get '/index' do
   if session[:user_id]
     redirect "/users/#{session[:user_id]}"
@@ -11,14 +12,9 @@ get '/index' do
   end
 end
 
-# new user signup page
-get '/users/new' do
-  erb :new
-end
-
-# logging in from /index
+# => *****LOGIN*****
 post '/index' do
-  user = User.find_by(email: params[:email])    # we need a unique identifier for the user!
+  user = User.find_by(email: params[:email])    # => we need a unique identifier for the user!
   if user && user.password == params[:password]
     session[:user_id] = user.id
     redirect "/users/#{session[:user_id]}"
@@ -28,14 +24,26 @@ post '/index' do
   end
 end
 
-# creating user from /users/new
-post '/users/new' do
+# => *****LOGOUT*****
+post '/users/:uid' do
+  session[:user_id] = nil
+  redirect '/index'
+end
+
+# => *****SIGNUP*****
+get '/new' do
+  erb :new
+end
+
+post '/new' do
   @user = User.create(email: params[:email], password: params[:password])
   session[:user_id] = @user.id
   redirect "/users/#{session[:user_id]}"
 end
 
+# => *****PROFILE*****
 get "/users/:uid" do
+  @items = Item.all
   if session[:user_id].to_s == params[:uid]
     erb :profile
   else
@@ -43,7 +51,12 @@ get "/users/:uid" do
   end
 end
 
-post '/users/:uid' do
-  session[:user_id] = nil
-  redirect '/index'
+# => *****ADD/MONITOR ITEM*****
+post "/users/:uid" do
+  @items = Item.all
+  if session[:user_id].to_s == params[:uid]
+    erb :profile
+  else
+    redirect '/index'
+  end
 end
