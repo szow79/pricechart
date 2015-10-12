@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
+  def add_item(properties, product_url)
+    self.items.create(name: properties[:name], description: properties[:description], url: product_url)
+  end
 end

@@ -2,32 +2,39 @@
 
 <h3>Welcome Home <%= session[:user_id] %></h3>
 
+<!-- *****LOGOUT***** -->
   <nav>
-    <form method='post' action="/users/<%= session[:user_id] %>">
+    <form method='post' action='/users/<%= session[:user_id] %>'>
       <input type='submit' value='log out'>
     </form>
   </nav>
   <hr>
 
+<!-- *****ADD/MONITOR ITEM***** -->
   <article>
-    <form method='post' action='/users/<%= session[:user_id] %>'>
-      <input type='text' name='name'>
-      <input type='text' name='description'>
-      <input type='text' name='url'>
-      <input type='submit' value='Add item!'>
+    <form method='post' action='/users/<%= session[:user_id] %>/add'>
+      <input type='text' name='url' placeholder='Paste URL'>
+      <input type='submit' value='Monitor it!'>
     </form>
   </article>
 
+<!-- *****LIST ITEMS***** -->
   <article>
     <% @items.each do |item| %>
-      Item: <%= item.name %></br>
-      Url: <a href="http://<%= item.url %>"><%= item.url %></a></br>
-      Description: <%= item.description %></br>
-      <!-- interchange onclick? -->
-      Pic: MAYBE</br>
-      Graph: NOT THERE YET</br>
+      <p id='item<%= item.id %>' class='items'>
+        Item: <%= item.name %></br>
+        Url: <a href="<%= item.url %>"><%= item.url %></a></br>
+        Description: <%= item.description %></br>
+        <!-- interchange onclick? -->
+        Pic: MAYBE</br>
+        Graph: NOT THERE YET</br>
+
+<!-- *****REMOVE ITEM BOTTON***** -->
+        <form class='remove' method='post' action='/users/<%= session[:user_id] %>/<%= item.id %>'>
+          <input type='submit' value='Remove it!'>
+        </form>
+      </p>
     <% end %>
-    <button class='hide'>Remove item!</button>
   </article>
 
 </body>
@@ -35,3 +42,10 @@
 <footer>
 
 </footer>
+
+<!-- *****ADMIN BUTTON***** -->
+<article>
+  <form method='post' action='/record'>
+    <input type='submit' value="Record Prices">
+  </form>
+</article>

@@ -42,7 +42,7 @@ post '/new' do
 end
 
 # => *****PROFILE*****
-get "/users/:uid" do
+get '/users/:uid' do
   @items = Item.all
   if session[:user_id].to_s == params[:uid]
     erb :profile
@@ -52,11 +52,26 @@ get "/users/:uid" do
 end
 
 # => *****ADD/MONITOR ITEM*****
-post "/users/:uid" do
-  @items = Item.all
-  if session[:user_id].to_s == params[:uid]
-    erb :profile
-  else
-    redirect '/index'
-  end
+post '/users/:uid/add' do
+  user = User.find(session[:user_id])
+  product_url = params[:url]
+  properties = scrape(product_url)
+  item = user.add_item(properties, product_url)
+  item.records.create(price: properties[:price].scan(/\d/).join.to_i)
+  redirect '/users/:uid'
 end
+
+# => *****REMOVE ITEM*****
+post '/users/:uid/:iid' do
+  target_item_id = params[:iid]
+  Item.find(target_item_id).destroy
+  Record.where(item_id: target_item_id).map(&:destroy)
+  redirect '/users/:uid'
+end
+
+# => *****ADMIN/SYSTEM RECORD PRICES*****
+post '/record' do
+  system_record
+  redirect '/users/:uid'
+end
+
