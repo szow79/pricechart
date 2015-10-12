@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def add_item(properties, product_url)
-    self.items.create(name: properties[:name], description: properties[:description], url: product_url)
+  def add_item(properties)
+    item = self.items.create(name: properties[:name], description: properties[:description], url: properties[:url])
+    item.records.create(price: properties[:price])
   end
 end

@@ -44,8 +44,10 @@
 </footer>
 
 <!-- *****ADMIN BUTTON***** -->
-<article>
-  <form method='post' action='/record'>
-    <input type='submit' value="Record Prices">
-  </form>
-</article>
+<% if session[:user_id] == 1 %>
+  <article>
+    <form method='post' action='/record'>
+      <input type='submit' value="Record Prices">
+    </form>
+  </article>
+<% end %>

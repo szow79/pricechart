@@ -2,4 +2,8 @@ html, nav, article, .items { margin: 2em 2em 0em 2em; }
 
 .remove { margin: 0em 2em 0em 2em; }
 
-article, .items, form { border: 1px solid black; }
+.items, form { border: 1px solid blue; }
+
+article { border: 1px solid gold; }
+
+a:hover { color: gold; }

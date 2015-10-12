@@ -43,7 +43,7 @@ end
 
 # => *****PROFILE*****
 get '/users/:uid' do
-  @items = Item.all
+  @items = Item.where(user_id: session[:user_id])
   if session[:user_id].to_s == params[:uid]
     erb :profile
   else
@@ -54,10 +54,8 @@ end
 # => *****ADD/MONITOR ITEM*****
 post '/users/:uid/add' do
   user = User.find(session[:user_id])
-  product_url = params[:url]
-  properties = scrape(product_url)
-  item = user.add_item(properties, product_url)
-  item.records.create(price: properties[:price].scan(/\d/).join.to_i)
+  properties = scrape(params[:url])
+  item = user.add_item(properties)
   redirect '/users/:uid'
 end
 
