@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   include BCrypt
 
   has_many :items
-  has_many :data, through: :items
+  has_many :records, through: :items
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
@@ -17,5 +17,9 @@ class User < ActiveRecord::Base
   def password=(new_password)
     @password = Password.create(new_password)
     self.password_hash = @password
+  end
+
+  def add_item(properties, product_url)
+    self.items.create(name: properties[:name], description: properties[:description], url: product_url)
   end
 end

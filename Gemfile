@@ -7,7 +7,7 @@ gem 'hirb'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'thin'
-
+gem 'nokogiri'
 gem 'activesupport', "~>4.1"
 gem 'activerecord', "~>4.1"
 
