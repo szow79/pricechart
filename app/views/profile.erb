@@ -25,13 +25,17 @@
 
 <!-- *****LIST ITEMS***** -->
   <article>
+    <% counter = 0 %>
     <% @items.each do |item| %>
-
-      <%= erb :item, locals: {item_name: item.name, item_url: item.url, item_description: item.description, item_id: item.id} %>
+    <% counter += 1 %>
+      <%= erb :item, locals: {item_name: item.name, item_url: item.url, item_description: item.description, item_id: item.id, counter: counter} %>
     
     <% end %>
 
   </article>
+
+
+
 
 </body>
 
