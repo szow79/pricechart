@@ -1,0 +1,38 @@
+
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ <script type="text/javascript">
+   google.load('visualization', '1', {packages:['corechart']});
+   google.setOnLoadCallback(drawChart);
+
+   function drawChart() {
+     var data = google.visualization.arrayToDataTable([
+       ['Time', 'Price'],
+       [12, 1],
+       [14, 2],
+       [20, 3],
+       [23, 4]
+     ]);
+     var options = {
+       title: 'Price History'
+     };
+     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+     chart.draw(data, options);
+   }
+ </script> 
+
+<!-- *****LIST ITEMS***** -->
+<p id='item<%= id %>' class='items'>
+Item: <%= item_name %></br>
+Url: <a href="<%= url %>"><%= url %></a></br>
+Description: <%= description %></br>
+<!-- interchange onclick? -->
+Pic: MAYBE</br>
+Graph:NOT YET</br>
+
+<div id="chart_div" style="width: 600px; height: 380px;"></div>
+<!-- *****REMOVE ITEM BOTTON***** -->
+        <form class='remove' method='post' action='/users/<%= session[:user_id] %>/<%= id %>'>
+          <input type='submit' value='Remove it!'>
+        </form>
+      </p>

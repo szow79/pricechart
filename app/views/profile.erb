@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
 <body>
 
 <h3>Welcome Home <%= session[:user_id] %></h3>
@@ -21,20 +26,12 @@
 <!-- *****LIST ITEMS***** -->
   <article>
     <% @items.each do |item| %>
-      <p id='item<%= item.id %>' class='items'>
-        Item: <%= item.name %></br>
-        Url: <a href="<%= item.url %>"><%= item.url %></a></br>
-        Description: <%= item.description %></br>
-        <!-- interchange onclick? -->
-        Pic: MAYBE</br>
-        Graph: NOT THERE YET</br>
 
-<!-- *****REMOVE ITEM BOTTON***** -->
-        <form class='remove' method='post' action='/users/<%= session[:user_id] %>/<%= item.id %>'>
-          <input type='submit' value='Remove it!'>
-        </form>
-      </p>
+        <%= erb :item, locals: {item_name: item.name, url: item.url, description: item.description, id: item.id} %>
+
+
     <% end %>
+
   </article>
 
 </body>
@@ -51,3 +48,4 @@
     </form>
   </article>
 <% end %>
+</html>
