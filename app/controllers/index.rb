@@ -53,6 +53,7 @@ end
 # => *****PROFILE*****
 get '/users/:uid' do
   @items = Item.where(user_id: session[:user_id])
+  @records = Record.all
   if session[:user_id].to_s == params[:uid]
     erb :profile
   else

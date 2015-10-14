@@ -27,9 +27,8 @@
   <article>
     <% @items.each do |item| %>
 
-        <%= erb :item, locals: {item_name: item.name, url: item.url, description: item.description, id: item.id} %>
-
-
+      <%= erb :item, locals: {item_name: item.name, item_url: item.url, item_description: item.description, item_id: item.id} %>
+    
     <% end %>
 
   </article>

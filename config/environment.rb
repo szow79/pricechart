@@ -21,7 +21,6 @@ require 'sinatra/sprockets'
 require 'sinatra'
 require "sinatra/reloader" if development?
 
-require 'chartkick'
 require 'erb'
 
 # Some helper constants for path-centric logic

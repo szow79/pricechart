@@ -14,7 +14,7 @@ gem 'activerecord', "~>4.1"
 gem 'sinatra-sprockets-ext'
 gem 'rake'
 gem 'bcrypt-ruby'
-gem 'chartkick'
+
 gem 'shotgun'
 
 group :development, :test do
