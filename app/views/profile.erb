@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 </head>
+
+<div class="container">
+
 <body>
 
-<h3>Welcome Home <%= session[:user_id] %></h3>
-
 <!-- *****LOGOUT***** -->
-  <nav>
-    <form method='post' action='/users/<%= session[:user_id] %>'>
-      <input type='submit' value='log out'>
-    </form>
-  </nav>
-  <hr>
+<div class='row'>
+  <div class='col-sm-3'>
+  <h3>Welcome Home </br><%= @user.email %></h3>
+    <nav>
+      <form method='post' action='/users/<%= session[:user_id] %>'>
+        <input class='btn-primary' type='submit' value='log out'>
+      </form>
+    </nav>
+  </div>
 
-<!-- *****ADD/MONITOR ITEM***** -->
-  <article>
+  <article class='form-group'>
     <form method='post' action='/users/<%= session[:user_id] %>/add'>
-      <input type='text' name='url' placeholder='Paste URL'>
-      <input type='submit' value='Monitor it!'>
+      <input class=' col-sm-7 ' type='text' name='url' placeholder='Paste URL'>
+      <input class='col-sm-1 btn-primary' type='submit' value='Monitor it!'>
     </form>
   </article>
 
+</div>
+<hr>
+
+<!-- *****ADD/MONITOR ITEM***** -->
+<div class='row'>
+
+</div>
+
 <!-- *****LIST ITEMS***** -->
+<div class='row'>
   <article>
     <% counter = 0 %>
     <% @items.each do |item| %>
@@ -33,8 +44,8 @@
     <% end %>
 
   </article>
-
-
+</div>  
+</div>
 
 
 </body>
@@ -47,7 +58,7 @@
 <% if session[:user_id] == 1 %>
   <article>
     <form method='post' action='/record'>
-      <input type='submit' value="Record Prices">
+      <input class='btn-danger' type='submit' value="Record Prices">
     </form>
   </article>
 <% end %>
