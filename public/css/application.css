@@ -1,6 +1,14 @@
-/*html, nav, article, .items { 
+h3, nav, article, .items { 
 	margin: 2em 2em 0em 2em; 
-}*/
+}
+
+h2 {
+	margin-left: 1em;
+} 
+
+form {
+	margin-left: 2em
+}
 
 .remove { 
 	top: 285px;
@@ -18,7 +26,7 @@
 
 .bg-color { 
 	background-size: cover;
-	background: linear-gradient(#E6E6FF, white) no-repeat center center fixed; 
+	background: linear-gradient(white, #CACAFF) no-repeat center center fixed; 
 }
 
 .color-w { 

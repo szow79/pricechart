@@ -45,10 +45,7 @@
 </body>
 
 <footer>
-
-</footer>
-
-<!-- *****ADMIN BUTTON***** -->
+<!-- *****ADMIN BUTTONS***** -->
 
 <div class='row'>
   <% if session[:user_id] == 1 %>
@@ -63,9 +60,14 @@
       <button class='btn-danger'><a href='/bonus'>Bonus</a></button>
     </div>
 
+    <div class='col-sm-3' id='fun-btn'>
+      <button class='btn-danger'></button>
+    </div>
+
   <% end %>
 </div>
 
+</footer>
 </html>
 
 
