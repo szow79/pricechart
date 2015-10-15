@@ -65,6 +65,10 @@ GEM
       rack-test
       sinatra (~> 1.4.0)
       tilt (~> 1.3)
+    sinatra-sprockets-ext (0.0.5)
+      sprockets
+    sprockets (3.4.0)
+      rack (> 1, < 3)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -90,6 +94,7 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-contrib
+  sinatra-sprockets-ext
   thin
 
 BUNDLED WITH

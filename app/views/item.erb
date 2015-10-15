@@ -1,0 +1,43 @@
+
+<!-- *****CHART***** -->
+<script type="text/javascript">
+  google.load('visualization', '1', {packages:['corechart']});
+  google.setOnLoadCallback(drawChart);
+
+  function drawChart(){
+  var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Date');
+      data.addColumn('number', '$');
+      data.addRows([
+      <% @records.each do |record| %>
+        <% if record.item_id == item_id %>
+          ['<%= record.created_at.to_s[0..9]%>', <%= record.price.to_f/100 %>],
+        <% end%>
+      <% end%>
+    ]);
+  var options = {
+    title: 'HISTORY'
+  };
+  var chart = new google.visualization.LineChart(document.getElementById('chart_div' + <%= counter %>));
+  chart.draw(data, options);
+  }
+</script> 
+
+<!-- *****LISTING ITEMS***** -->
+<div class="row">
+<div class="col-sm-12">
+<div class='col-sm-5'>
+  <p id='item<%= item_id %>' class='items'>
+    <b><%= item_name %></b></br>
+    <%= item_description %></br>
+    <a href="<%= item_url %>">Click My Referral Link!</a></br>
+</div>
+
+<div class='col-sm-4' id="chart_div<%= counter %>" style="width: 500px; height: 300px;"></div>
+<!-- *****REMOVE ITEM BOTTON***** -->
+  <form class='remove col-sm-1' method='post' action='/users/<%= session[:user_id] %>/<%= item_id %>'>
+    <input class='btn btn-primary' type='submit' value='Remove it!'>
+  </form>
+</p>
+</div>
+</div>

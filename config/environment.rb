@@ -17,10 +17,9 @@ require 'pg'
 require 'bcrypt'
 require 'active_record'
 require 'logger'
-
+require 'sinatra/sprockets'
 require 'sinatra'
 require "sinatra/reloader" if development?
-
 
 require 'erb'
 

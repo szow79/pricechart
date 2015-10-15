@@ -1,41 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<div class="container">
+
 <body>
 
-<h3>Welcome Home <%= session[:user_id] %></h3>
-
 <!-- *****LOGOUT***** -->
-  <nav>
-    <form method='post' action='/users/<%= session[:user_id] %>'>
-      <input type='submit' value='log out'>
+<div class='row'>
+  <div class='col-sm-3'>
+  <h3>Welcome Home </br><%= @user.email %></h3>
+    <nav>
+      <form method='post' action='/users/<%= session[:user_id] %>'>
+        <input class='btn-primary' type='submit' value='log out'>
+      </form>
+    </nav>
+  </div>
+
+  <article class='form-group'>
+    <form method='post' action='/users/<%= session[:user_id] %>/add'>
+      <input class=' col-sm-7 ' type='text' name='url' placeholder='Paste URL'>
+      <input class='col-sm-1 btn-primary' type='submit' value='Monitor it!'>
     </form>
-  </nav>
-  <hr>
+  </article>
+
+</div>
+<hr>
 
 <!-- *****ADD/MONITOR ITEM***** -->
-  <article>
-    <form method='post' action='/users/<%= session[:user_id] %>/add'>
-      <input type='text' name='url' placeholder='Paste URL'>
-      <input type='submit' value='Monitor it!'>
-    </form>
-  </article>
+<div class='row'>
+
+</div>
 
 <!-- *****LIST ITEMS***** -->
+<div class='row'>
   <article>
+    <% counter = 0 %>
     <% @items.each do |item| %>
-      <p id='item<%= item.id %>' class='items'>
-        Item: <%= item.name %></br>
-        Url: <a href="<%= item.url %>"><%= item.url %></a></br>
-        Description: <%= item.description %></br>
-        <!-- interchange onclick? -->
-        Pic: MAYBE</br>
-        Graph: NOT THERE YET</br>
-
-<!-- *****REMOVE ITEM BOTTON***** -->
-        <form class='remove' method='post' action='/users/<%= session[:user_id] %>/<%= item.id %>'>
-          <input type='submit' value='Remove it!'>
-        </form>
-      </p>
+    <% counter += 1 %>
+      <%= erb :item, locals: {item_name: item.name, item_url: item.url, item_description: item.description, item_id: item.id, counter: counter} %>
+    
     <% end %>
+
   </article>
+</div>  
+</div>
+
 
 </body>
 
@@ -44,8 +55,11 @@
 </footer>
 
 <!-- *****ADMIN BUTTON***** -->
-<article>
-  <form method='post' action='/record'>
-    <input type='submit' value="Record Prices">
-  </form>
-</article>
+<% if session[:user_id] == 1 %>
+  <article>
+    <form method='post' action='/record'>
+      <input class='btn-danger' type='submit' value="Record Prices">
+    </form>
+  </article>
+<% end %>
+</html>

@@ -1,3 +1,12 @@
+
+  get '/testpage' do
+    @title = 'Ethnic Composition'
+    @data = {'Hoklo' => 70, 'Hakka' => 15, 'mainlander' => 13, 'indigenous' => 2}
+    @source = 'http://en.wikipedia.org/wiki/Demographics_of_Taiwan'
+    erb :testpage
+  end
+
+
 # => *****HOMEPAGE / LOGIN*****
 
 get '/' do
@@ -43,7 +52,9 @@ end
 
 # => *****PROFILE*****
 get '/users/:uid' do
-  @items = Item.all
+  @user=User.find(session[:user_id])
+  @items = Item.where(user_id: session[:user_id])
+  @records = Record.all
   if session[:user_id].to_s == params[:uid]
     erb :profile
   else
@@ -54,10 +65,8 @@ end
 # => *****ADD/MONITOR ITEM*****
 post '/users/:uid/add' do
   user = User.find(session[:user_id])
-  product_url = params[:url]
-  properties = scrape(product_url)
-  item = user.add_item(properties, product_url)
-  item.records.create(price: properties[:price].scan(/\d/).join.to_i)
+  properties = scrape(params[:url])
+  item = user.add_item(properties)
   redirect '/users/:uid'
 end
 
