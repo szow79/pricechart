@@ -44,3 +44,10 @@ form {
 	position: relative;
 	margin-left: 10%;
 }
+
+#omg  { 
+	left: 800px;
+	bottom: 180px;
+	width: 15%;	
+	display: none;
+}
