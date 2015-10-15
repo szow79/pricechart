@@ -7,7 +7,8 @@ $(document).ready(function () {
     request.done(function () { window.location = "/"; });
   });
 
-  $('#fun-btn').on('click', function(e){
+  // $('#fun-btn').on('click', function(e){
+  $('#fun-btn').hover(function(e){
   	e.preventDefault()
 
   	var random = Math.floor(Math.random() * 6)
@@ -18,5 +19,4 @@ $(document).ready(function () {
   	if (random === 4) $('#fun-btn button').animate({'height': '50px', 'width': '50px'})
   	if (random === 5) $('#fun-btn button').animate({'height': '60px', 'width': '20px'})
   }) 
-
 });

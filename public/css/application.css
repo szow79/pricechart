@@ -6,6 +6,12 @@ h2 {
 	margin-left: 1em;
 } 
 
+.charts {
+	opacity: 0.9;
+	border-top: 2px solid orange;
+	border-bottom: 2px solid green;
+}
+
 form {
 	margin-left: 2em
 }
