@@ -1,7 +1,16 @@
 html, nav, article, .items { margin: 2em 2em 0em 2em; }
 
-.remove { margin: 0em 2em 0em 2em; }
+.remove { 
+	margin: 0em 2em 0em 2em; 
+	top: 210px;
+	right: 40px;
+}
 
-/*article { border: 1px solid gold; }*/
+.btn { margin: 0em 1em 0em 1em; }
 
-a:hover { color: gold; }
+.move-d { 
+	position: relative;
+	top: 50px; 
+}
+
+.bg-color { background-color: #E6E6FF; }

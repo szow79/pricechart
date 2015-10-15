@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class='bg-color'>
 <head>
 </head>
 
@@ -10,7 +10,7 @@
 <!-- *****LOGOUT***** -->
 <div class='row'>
   <div class='col-sm-3'>
-  <h3>Welcome Home </br><%= @user.email %></h3>
+  <h3>Welcome <b><%= @user.email %></b></h3>
     <nav>
       <form method='post' action='/users/<%= session[:user_id] %>'>
         <input class='btn-primary' type='submit' value='log out'>
@@ -18,20 +18,15 @@
     </nav>
   </div>
 
-  <article class='form-group'>
+<!-- *****ADD/MONITOR ITEM***** -->
+  <article class='form-group move-d'>
     <form method='post' action='/users/<%= session[:user_id] %>/add'>
       <input class=' col-sm-7 ' type='text' name='url' placeholder='Paste URL'>
       <input class='col-sm-1 btn-primary' type='submit' value='Monitor it!'>
     </form>
   </article>
-
 </div>
 <hr>
-
-<!-- *****ADD/MONITOR ITEM***** -->
-<div class='row'>
-
-</div>
 
 <!-- *****LIST ITEMS***** -->
 <div class='row'>
@@ -40,7 +35,7 @@
     <% @items.each do |item| %>
     <% counter += 1 %>
       <%= erb :item, locals: {item_name: item.name, item_url: item.url, item_description: item.description, item_id: item.id, counter: counter} %>
-    
+      <hr>
     <% end %>
 
   </article>

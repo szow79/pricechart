@@ -1,4 +1,3 @@
-
 <!-- *****CHART***** -->
 <script type="text/javascript">
   google.load('visualization', '1', {packages:['corechart']});
@@ -25,19 +24,19 @@
 
 <!-- *****LISTING ITEMS***** -->
 <div class="row">
-<div class="col-sm-12">
-<div class='col-sm-5'>
-  <p id='item<%= item_id %>' class='items'>
-    <b><%= item_name %></b></br>
-    <%= item_description %></br>
-    <a href="<%= item_url %>">Click My Referral Link!</a></br>
-</div>
+  <div class="col-sm-12">
+    <div class='col-sm-5'>
+      <p id='item<%= item_id %>' class='items'>
+        <b><%= item_name %></b></br>
+        <%= item_description %></br></br></br>
+        <a href="<%= item_url %>">Click My Referral Link!</a></br>
+    </div>
 
-<div class='col-sm-4' id="chart_div<%= counter %>" style="width: 500px; height: 300px;"></div>
+      <div class='col-sm-4' id="chart_div<%= counter %>" style="width: 500px; height: 300px;"></div>
 <!-- *****REMOVE ITEM BOTTON***** -->
-  <form class='remove col-sm-1' method='post' action='/users/<%= session[:user_id] %>/<%= item_id %>'>
-    <input class='btn btn-primary' type='submit' value='Remove it!'>
-  </form>
-</p>
-</div>
+      <form class='remove col-sm-1' method='post' action='/users/<%= session[:user_id] %>/<%= item_id %>'>
+        <input class='btn btn-primary' type='submit' value='Remove it!'>
+      </form>
+    </p>
+  </div>
 </div>
