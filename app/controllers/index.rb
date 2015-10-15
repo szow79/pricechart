@@ -84,3 +84,7 @@ post '/record' do
   redirect '/users/:uid'
 end
 
+# => *****BONUS PAGE*****
+get '/bonus' do
+  erb :bonus
+end

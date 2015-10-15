@@ -1,16 +1,32 @@
-html, nav, article, .items { margin: 2em 2em 0em 2em; }
+/*html, nav, article, .items { 
+	margin: 2em 2em 0em 2em; 
+}*/
 
 .remove { 
-	margin: 0em 2em 0em 2em; 
-	top: 210px;
-	right: 40px;
+	top: 285px;
+	right: 20px;
 }
 
-.btn { margin: 0em 1em 0em 1em; }
+.btn { 
+	margin: 0em 1em 0em 1em; 
+}
 
 .move-d { 
 	position: relative;
 	top: 50px; 
 }
 
-.bg-color { background-color: #E6E6FF; }
+.bg-color { 
+	background-size: cover;
+	background: linear-gradient(#E6E6FF, white) no-repeat center center fixed; 
+}
+
+.color-w { 
+	color: white; 
+}
+
+.bonus-img {
+	width: 1000px;
+	position: relative;
+	margin-left: 10%;
+}
