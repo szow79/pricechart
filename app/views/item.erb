@@ -16,7 +16,7 @@
       <% end%>
     ]);
   var options = {
-    title: 'HISTORIC PRICE'
+    title: 'Price Chart'
   };
   var chart = new google.visualization.LineChart(document.getElementById('chart_div' + <%= counter %>));
   chart.draw(data, options);
@@ -34,7 +34,7 @@
       <a href="<%= item_url %>">Click My Referral Link!</a></br>
   </div>
 
-    <div class='col-sm-4 charts' id="chart_div<%= counter %>" style="width: 480px; height: 320px;"></div>
+    <div class='col-sm-4 charts' id="chart_div<%= counter %>" style="width: 480px; height: 280px;"></div>
 <!-- *****REMOVE ITEM BOTTON***** -->
     <form class='remove col-sm-1' method='post' action='/users/<%= session[:user_id] %>/<%= item_id %>'>
       <input class='btn btn-primary' type='submit' value='Remove it!'>

@@ -28,8 +28,8 @@ post '/index' do
     session[:user_id] = user.id
     redirect "/users/#{session[:user_id]}"
   else
-    @errors = {login_error: "user name or password incorrect, try again"}
-    redirect '/index'
+    @errors = {login_error: "username or password incorrect, try again"}
+    erb :index
   end
 end
 
@@ -46,8 +46,13 @@ end
 
 post '/new' do
   @user = User.create(email: params[:email], password: params[:password])
-  session[:user_id] = @user.id
-  redirect "/users/#{session[:user_id]}"
+  if @user.id
+    session[:user_id] = @user.id
+    redirect "/users/#{session[:user_id]}"
+  else
+    @errors = {signup_error: "username is already used"}
+    erb :new
+  end
 end
 
 # => *****PROFILE*****

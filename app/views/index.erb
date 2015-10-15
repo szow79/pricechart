@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
-<body class='bg-color'>
-<h2>Welcome<span class='color-w'>???</span></h2>
+	<body class='bg-color'>
+		<h2>Welcome<span class='color-w'>???</span></h2>
 
-<form class='pull-left' method='post' action='/index'>
-  <input type='text' name='email'>
-  <input type='password' name='password'>
-  <input class='btn btn-primary' type='submit' value='Login'>
-</form>
-<h4 class='pull-right'>Not yet a member? <a href='/new'><button class='btn btn-primary'>Signup!</button></a></h4>
-</body>
+		<form class='pull-left' method='post' action='/index'>
+		  <input type='text' name='email'>
+		  <input type='password' name='password'>
+		  <input class='btn btn-primary' type='submit' value='Login'>
+		</form>
+
+		<a href='/new'><button class=' pull-left btn btn-primary'>Signup</button></a>
+
+		<h4>
+			<% if @errors %>
+			  <%= @errors[:login_error] %>
+			<% end %>
+		</h4>
+
+	</body>
 </html>
