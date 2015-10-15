@@ -1,7 +1,53 @@
-html, nav, article, .items { margin: 2em 2em 0em 2em; }
+h3, nav, article, .items { 
+	margin: 2em 2em 0em 2em; 
+}
 
-.remove { margin: 0em 2em 0em 2em; }
+h2 {
+	margin-left: 1em;
+} 
 
-/*article { border: 1px solid gold; }*/
+.charts {
+	opacity: 0.9;
+	border-top: 2px solid orange;
+	border-bottom: 2px solid green;
+}
 
-a:hover { color: gold; }
+form {
+	margin-left: 2em
+}
+
+.remove { 
+	top: 285px;
+	right: 20px;
+}
+
+.btn { 
+	margin: 0em 1em 0em 1em; 
+}
+
+.move-d { 
+	position: relative;
+	top: 50px; 
+}
+
+.bg-color { 
+	background-size: cover;
+	background: linear-gradient(white, #CACAFF) no-repeat center center fixed; 
+}
+
+.color-w { 
+	color: white; 
+}
+
+.bonus-img {
+	width: 1000px;
+	position: relative;
+	margin-left: 10%;
+}
+
+#omg  { 
+	left: 800px;
+	bottom: 180px;
+	width: 15%;	
+	display: none;
+}
