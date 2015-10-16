@@ -16,3 +16,8 @@ gem 'rake'
 gem 'bcrypt-ruby'
 
 gem 'shotgun'
+
+gem 'rspec'
+gem 'faker'
+group :development, :test do
+end
