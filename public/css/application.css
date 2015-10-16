@@ -7,7 +7,7 @@ h2 {
 } 
 
 .charts {
-	opacity: 0.9;
+	opacity: 0.85;
 	border-top: 2px solid orange;
 	border-bottom: 2px solid green;
 }
