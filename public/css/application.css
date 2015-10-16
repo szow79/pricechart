@@ -1,5 +1,5 @@
 h3, nav, article, .items { 
-	margin: 2em 2em 0em 2em; 
+	margin: 2em 2em 0em 0em; 
 }
 
 h2 {
@@ -18,7 +18,7 @@ form {
 
 .remove { 
 	top: 245px;
-	right: 20px;
+	/*right: 20px;*/
 }
 
 .btn { 
