@@ -32,7 +32,7 @@ form {
 
 .bg-color { 
 	background-size: cover;
-	background: linear-gradient(white, #CACAFF) no-repeat center center fixed; 
+	background: linear-gradient(#E2E1FF, white) no-repeat center center fixed; 
 }
 
 .color-w { 
