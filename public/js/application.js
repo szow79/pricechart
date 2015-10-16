@@ -7,8 +7,8 @@ $(document).ready(function () {
     request.done(function () { window.location = '/'; });
   });
 
-  // $('#fun-btn').on('click', function(e){
-  $('#fun-btn').hover(function(e){
+  $('#fun-btn').on('click', function(e){
+  // $('#fun-btn').hover(function(e){
   	e.preventDefault();
 
   	var random = Math.floor(Math.random() * 6);
