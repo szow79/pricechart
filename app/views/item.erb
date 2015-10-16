@@ -23,8 +23,6 @@
   }
 </script> 
 
-
-
 <!-- *****LISTING ITEMS***** -->
 <div class="row">
   <div class='col-sm-5'>
@@ -37,7 +35,7 @@
     <div class='col-sm-4 charts' id="chart_div<%= counter %>" style="width: 420px; height: 280px;"></div>
 <!-- *****REMOVE ITEM BOTTON***** -->
     <form class='remove col-sm-1' method='post' action='/users/<%= session[:user_id] %>/<%= item_id %>'>
-      <input class='btn btn-primary' type='submit' value='Remove it!'>
+      <input class='btn btn-primary' type='submit' value='Remove'>
     </form>
   </p>
 </div>
