@@ -1,5 +1,5 @@
 h3, nav, article, .items { 
-	margin: 2em 2em 0em 2em; 
+	margin: 2em 2em 0em 0em; 
 }
 
 h2 {
@@ -7,7 +7,7 @@ h2 {
 } 
 
 .charts {
-	opacity: 0.9;
+	opacity: 0.85;
 	border-top: 2px solid orange;
 	border-bottom: 2px solid green;
 }
@@ -18,7 +18,7 @@ form {
 
 .remove { 
 	top: 245px;
-	right: 20px;
+	/*right: 20px;*/
 }
 
 .btn { 
@@ -32,7 +32,7 @@ form {
 
 .bg-color { 
 	background-size: cover;
-	background: linear-gradient(white, #CACAFF) no-repeat center center fixed; 
+	background: linear-gradient(#E2E1FF, white) no-repeat center center fixed; 
 }
 
 .color-w { 
