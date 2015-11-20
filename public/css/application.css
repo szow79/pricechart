@@ -30,9 +30,8 @@ form {
 	top: 50px; 
 }
 
-.bg-color { 
-	background-size: cover;
-	background: linear-gradient(#E2E1FF, white) no-repeat center center fixed; 
+.bg-img { 
+	background-image: url("../img/background.jpg");
 }
 
 .color-w { 
